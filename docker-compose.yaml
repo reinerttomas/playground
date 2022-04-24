@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+    nginx:
+        build:
+            context: .
+            dockerfile: .docker/nginx/Dockerfile
+        container_name: playground-nginx
+        volumes:
+            - ./:/var/www/html/
+        depends_on:
+            - php
+        ports:
+            - "8080:80"
+        networks:
+            - playground
+
+    php:
+        build:
+            context: .
+            dockerfile: ./.docker/php/Dockerfile
+        container_name: playground-php
+        volumes:
+            - ./:/var/www/html/
+        networks:
+            - playground
+
+networks:
+    playground:
