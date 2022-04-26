@@ -10,3 +10,6 @@ import './styles/app.css';
 
 // start the Stimulus application
 import './bootstrap';
+
+import './scripts';
+console.log('Hi! My name is app.js!');
