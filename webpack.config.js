@@ -22,6 +22,19 @@ Encore
      */
     .addEntry('app', './assets/app.js')
 
+    .copyFiles({
+        from: './assets/images',
+
+        // optional target path, relative to the output dir
+        // to: 'images/[path][name].[ext]',
+
+        // if versioning is enabled, add the file hash too
+        to: Encore.isProduction() ? 'images/[path][name].[hash:8].[ext]' : 'images/[path][name].[ext]',
+
+        // only copy files matching this pattern
+        pattern: /\.(png|jpg|jpeg|ico)$/
+    })
+
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
 
@@ -53,6 +66,11 @@ Encore
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';
         config.corejs = 3;
+    })
+
+    // useful when running inside a Virtual Machine
+    .configureWatchOptions(watchOptions => {
+        watchOptions.poll = 250; // check for changes every 250 milliseconds
     })
 
     // enables Sass/SCSS support
