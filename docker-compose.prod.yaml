@@ -5,10 +5,8 @@ services:
         build:
             context: .
             dockerfile: ./.docker/php/Dockerfile
-            target: app-dev
+            target: app
         container_name: playground-app
-        volumes:
-            - ./:/app
         ports:
             - "8080:80"
         networks:
