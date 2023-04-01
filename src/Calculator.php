@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App;
 
+use InvalidArgumentException;
+
 class Calculator
 {
     public function add(float $a, float $b): float
@@ -22,6 +24,10 @@ class Calculator
 
     public function divide(float $a, float $b): float
     {
+        if ($b <= 0) {
+            throw new InvalidArgumentException('Division by zero.');
+        }
+
         return round($a / $b, 2);
     }
 }
