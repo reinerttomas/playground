@@ -23,8 +23,8 @@ jobs:
       - name: Run PHPStan
         uses: php-actions/phpstan@v3
         with:
-          args: analyse --no-progress --no-interaction
           configuration: phpstan.neon
+          args: --no-progress --no-interaction
 
       - name: Run PHPUnit
         uses: php-actions/phpunit@v3
