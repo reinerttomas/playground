@@ -19,9 +19,11 @@ jobs:
 
       - name: Install dependencies
         uses: php-actions/composer@v6
+        with:
+          args: --no-progress
 
       - name: Run PHPStan
-        run: vendor/bin/phpstan analyse -c phpstan.neon
+        run: vendor/bin/phpstan analyse -c phpstan.neon --no-progress
 
       - name: Run PHPUnit
         uses: php-actions/phpunit@v3
