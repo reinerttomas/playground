@@ -35,4 +35,11 @@ class CalculatorTest extends TestCase
 
         self::assertEquals(0.67, $calculator->divide(2, 3));
     }
+
+    public function testDivideByZero(): void
+    {
+        $calculator = new Calculator();
+
+        self::assertEquals(0.67, $calculator->divide(2, 0));
+    }
 }
