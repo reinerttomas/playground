@@ -21,10 +21,7 @@ jobs:
         uses: php-actions/composer@v6
 
       - name: Run PHPStan
-        uses: php-actions/phpstan@v3
-        with:
-          configuration: phpstan.neon
-          args: --no-progress --no-interaction
+        run: vendor/bin/phpstan analyse -c phpstan.neon
 
       - name: Run PHPUnit
         uses: php-actions/phpunit@v3
