@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Tests;
 
 use App\Calculator;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 class CalculatorTest extends TestCase
@@ -39,6 +40,9 @@ class CalculatorTest extends TestCase
     public function testDivideByZero(): void
     {
         $calculator = new Calculator();
+
+        self::expectException(InvalidArgumentException::class);
+        self::expectExceptionMessage('Division by zero.');
 
         self::assertEquals(0.67, $calculator->divide(2, 0));
     }
