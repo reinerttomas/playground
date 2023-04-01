@@ -20,7 +20,13 @@ jobs:
       - name: Install dependencies
         uses: php-actions/composer@v6
 
-      - name: PHPUnit tests
+      - name: Run PHPStan
+        uses: php-actions/phpstan@v3
+        with:
+          args: analyse --no-progress --no-interaction
+          configuration: phpstan.neon
+
+      - name: Run PHPUnit
         uses: php-actions/phpunit@v3
         env:
           XDEBUG_MODE: coverage
