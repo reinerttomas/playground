@@ -43,4 +43,3 @@ jobs:
         with:
           token: ${{ secrets.CODE_COV_TOKEN }}
           files: ./coverage.xml
-          verbose: true
