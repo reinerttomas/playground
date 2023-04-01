@@ -1,4 +1,12 @@
+/Makefile
+
+### PhpStorm ###
 /.idea
+
+### Composer ###
 /vendor
 /composer.lock
-/Makefile
+
+### PHPUnit ###
+.phpunit.cache
+/coverage
