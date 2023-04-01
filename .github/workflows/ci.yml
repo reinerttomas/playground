@@ -23,7 +23,10 @@ jobs:
           args: --no-progress
 
       - name: Run PHPStan
-        run: vendor/bin/phpstan analyse -c phpstan.neon --no-progress
+        uses: php-actions/phpstan@v3
+        with:
+          configuration: phpstan.neon
+          args: --no-progress
 
       - name: Run PHPUnit
         uses: php-actions/phpunit@v3
