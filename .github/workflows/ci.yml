@@ -37,10 +37,10 @@ jobs:
         run: composer install --no-progress --prefer-dist --optimize-autoloader
 
       - name: Run PHPStan
-        run: vendor/bin/phpstan analyse -c phpstan.neon
+        run: vendor/bin/phpstan analyse -c phpstan.neon --no-progress
 
       - name: Run PHPUnit
-        run: vendor/bin/phpunit -c phpunit.xml --coverage-clover ./coverage.xml
+        run: vendor/bin/phpunit -c phpunit.xml --no-progress --coverage-clover ./coverage.xml
         env:
           XDEBUG_MODE: coverage
 
