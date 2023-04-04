@@ -37,7 +37,7 @@ jobs:
         run: vendor/bin/phpstan analyse -c phpstan.neon --no-progress
 
       - name: Run Coding Standard
-        run: vendor/bin/phpcbf --standard=ruleset.xml -q
+        run: vendor/bin/phpcs --standard=ruleset.xml -q
 
       - name: Run PHPUnit
         run: vendor/bin/phpunit -c phpunit.xml --no-progress --coverage-clover ./coverage.xml
