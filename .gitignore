@@ -10,3 +10,6 @@
 ### PHPUnit ###
 .phpunit.cache
 /coverage
+
+### PHP_CodeSniffer ###
+/.phpcs-cache
